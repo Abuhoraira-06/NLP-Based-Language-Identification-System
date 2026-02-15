@@ -4,61 +4,49 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 
-# -----------------------------
-# Page Config
-# -----------------------------
 st.set_page_config(page_title="Language Detection", layout="wide")
 
-# -----------------------------
-# Custom Professional CSS (Responsive)
-# -----------------------------
 st.markdown("""
 <style>
 
-/* Background */
 [data-testid="stAppViewContainer"] {
     background: linear-gradient(135deg, #e6f0ff 0%, #f5f7fa 100%);
 }
 
-/* Push content slightly down */
 .block-container {
-    padding-top: 6rem;
+    padding-top: 5rem;
     padding-bottom: 4rem;
 }
 
-/* Responsive Big Heading */
 .big-title {
-    font-size: clamp(28px, 3vw, 48px);
+    font-size: 40px;
     font-weight: 800;
     color: #0f172a;
-    line-height: 1.2;
+    white-space: nowrap;
+    text-align: left;
 }
 
-/* Description */
 .description {
-    font-size: 1.2rem;
+    font-size: 20px;
     color: #475569;
-    margin-top: 35px;
+    margin-top: 25px;
     line-height: 1.8;
-    max-width: 850px;
+    max-width: 900px;
     text-align: justify;
 }
 
-/* Custom Label */
 .custom-label {
-    font-size: 1.4rem;
+    font-size: 22px;
     font-weight: 400;
     color: #0f172a;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
-/* Text Area */
 textarea {
     font-size: 18px !important;
     padding: 15px !important;
 }
 
-/* Right Card */
 .card {
     background: white;
     padding: 35px;
@@ -66,7 +54,6 @@ textarea {
     box-shadow: 0px 20px 40px rgba(0,0,0,0.08);
 }
 
-/* Button */
 .stButton>button {
     background-color: #2563eb;
     color: white;
@@ -80,11 +67,10 @@ textarea {
     background-color: #1e40af;
 }
 
-/* Result Box */
 .result-box {
-    margin-top: 25px;
-    padding: 18px;
-    border-radius: 12px;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
     background-color: #f1f5f9;
     font-size: 18px;
     font-weight: 600;
@@ -94,14 +80,8 @@ textarea {
 </style>
 """, unsafe_allow_html=True)
 
-# -----------------------------
-# Layout
-# -----------------------------
-left, right = st.columns(2)
+left, right = st.columns([1.2, 1])
 
-# -----------------------------
-# LEFT SIDE
-# -----------------------------
 with left:
     st.markdown(
         "<div class='big-title'>NLP Based Language Identification System</div>",
@@ -116,9 +96,6 @@ with left:
         unsafe_allow_html=True
     )
 
-# -----------------------------
-# Load Dataset
-# -----------------------------
 @st.cache_data
 def load_data():
     data = pd.read_csv("Language_Detection.csv")
@@ -128,17 +105,10 @@ def load_data():
 
 data = load_data()
 
-# -----------------------------
-# Train Model
-# -----------------------------
 @st.cache_resource
 def train_model(data):
     pipeline = Pipeline([
-        ("vectorizer", TfidfVectorizer(
-            analyzer='char',
-            ngram_range=(2,4),
-            max_features=5000
-        )),
+        ("vectorizer", TfidfVectorizer(analyzer='char', ngram_range=(2,4), max_features=5000)),
         ("classifier", MultinomialNB())
     ])
     pipeline.fit(data["Text"], data["Language"])
@@ -146,9 +116,6 @@ def train_model(data):
 
 model = train_model(data)
 
-# -----------------------------
-# RIGHT SIDE
-# -----------------------------
 with right:
     st.markdown("<div class='card'>", unsafe_allow_html=True)
 
