@@ -31,8 +31,9 @@ st.markdown("""
     color: #475569;
     margin-top: 25px;
     line-height: 1.8;
-    max-width: 750px;
+    max-width: 700px;
     text-align: justify;
+    text-align: left;
 }
 
 .custom-label {
