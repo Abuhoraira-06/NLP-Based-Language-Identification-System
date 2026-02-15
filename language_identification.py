@@ -10,7 +10,7 @@ from sklearn.pipeline import Pipeline
 st.set_page_config(page_title="Language Detection", layout="wide")
 
 # -----------------------------
-# Custom Professional CSS
+# Custom Professional CSS (Responsive)
 # -----------------------------
 st.markdown("""
 <style>
@@ -22,40 +22,39 @@ st.markdown("""
 
 /* Push content slightly down */
 .block-container {
-    padding-top: 7rem;
+    padding-top: 6rem;
     padding-bottom: 4rem;
 }
 
-/* Big Heading */
+/* Responsive Big Heading */
 .big-title {
-    font-size: 52px;
+    font-size: 3.2vw;   /* Responsive size */
     font-weight: 800;
     color: #0f172a;
-    white-space: nowrap;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 /* Description */
 .description {
-    font-size: 20px;
+    font-size: 1.2rem;
     color: #475569;
-    margin-top: 40px;
-    line-height: 1.9;
-    max-width: 950px;
+    margin-top: 35px;
+    line-height: 1.8;
+    max-width: 850px;
     text-align: justify;
 }
 
-/* Custom Label (NOT BOLD) */
+/* Custom Label */
 .custom-label {
-    font-size: 28px;
-    font-weight: 400;   /* normal weight */
+    font-size: 1.4rem;
+    font-weight: 400;
     color: #0f172a;
     margin-bottom: 12px;
 }
 
-/* Text Area Font */
+/* Text Area */
 textarea {
-    font-size: 20px !important;
+    font-size: 18px !important;
     padding: 15px !important;
 }
 
@@ -79,15 +78,15 @@ textarea {
 
 .stButton>button:hover {
     background-color: #1e40af;
-    color: white;
 }
 
+/* Result Box */
 .result-box {
     margin-top: 25px;
     padding: 18px;
     border-radius: 12px;
     background-color: #f1f5f9;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: #0f172a;
 }
@@ -98,7 +97,7 @@ textarea {
 # -----------------------------
 # Layout
 # -----------------------------
-left, right = st.columns([1.2, 1])
+left, right = st.columns(2)
 
 # -----------------------------
 # LEFT SIDE
@@ -112,7 +111,7 @@ with left:
     st.markdown(
         """<div class='description'>
         Detect the language of your text instantly, whether it's in English, Spanish, or other languages.
-        Enter your text, and click the button to find out what language your text is in.
+        Enter your text and click the button to find out what language your text is in.
         </div>""",
         unsafe_allow_html=True
     )
