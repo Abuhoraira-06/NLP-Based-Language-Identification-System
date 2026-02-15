@@ -28,7 +28,7 @@ st.markdown("""
 
 /* Responsive Big Heading */
 .big-title {
-    font-size: 3.2vw;   /* Responsive size */
+    font-size: clamp(28px, 3vw, 48px);
     font-weight: 800;
     color: #0f172a;
     line-height: 1.2;
