@@ -19,7 +19,7 @@ st.markdown("""
 }
 
 .big-title {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 800;
     color: #0f172a;
     white-space: nowrap;
@@ -31,7 +31,7 @@ st.markdown("""
     color: #475569;
     margin-top: 25px;
     line-height: 1.8;
-    max-width: 900px;
+    max-width: 800px;
     text-align: justify;
 }
 
