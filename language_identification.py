@@ -122,7 +122,7 @@ with left:
 # -----------------------------
 @st.cache_data
 def load_data():
-    data = pd.read_csv(r"C:\Users\abuso\Documents\Language identification project\Language Detection.csv")
+    data = pd.read_csv("Language_Detection.csv")
     data.columns = ["Text", "Language"]
     data = data.dropna()
     return data
