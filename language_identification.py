@@ -33,7 +33,6 @@ st.markdown("""
     line-height: 1.8;
     max-width: 700px;
     text-align: justify;
-    text-align: left;
 }
 
 .custom-label {
